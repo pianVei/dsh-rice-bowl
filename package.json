@@ -1,0 +1,42 @@
+{
+  "name": "dsh-rice-bowl",
+  "version": "0.1.0",
+  "description": "白饭馆客户端：让 DSH 直接看和说 github.com/pianVei/rice-bowl",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "rice-bowl",
+    "community"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pianVei/dsh-rice-bowl.git"
+  },
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "compatibility": {
+      "dsh": ">=0.1.0-rc.8 <0.3.0"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-tools": "*"
+  }
+}

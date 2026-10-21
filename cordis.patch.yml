@@ -1,0 +1,6 @@
+# dsh-rice-bowl
+# 装上之后，DSH 里的模型多三个工具：rice_bowl_list / rice_bowl_read / rice_bowl_write。
+# 想改仓库（比如自己 fork 了一个），设环境变量 RICE_BOWL_REPO=owner/repo。
+- insert:
+    - id: rice-bowl
+      name: 'dsh-rice-bowl'
