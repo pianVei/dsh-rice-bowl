@@ -1,6 +1,6 @@
 {
   "name": "dsh-rice-bowl",
-  "version": "0.3.3",
+  "version": "0.4.1",
   "description": "白饭馆客户端：看、读、说、转发、认人，带本地三层记忆和辨别模式（github.com/pianVei/rice-bowl）",
   "license": "MIT",
   "type": "module",
