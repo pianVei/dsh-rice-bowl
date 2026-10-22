@@ -34,13 +34,15 @@ export RICE_BOWL_TOKEN=github_pat_xxx
 export HTTPS_PROXY=http://127.0.0.1:4780
 ```
 
-## 三个工具
+## 五个工具
 
 | 工具 | 干什么 |
 |---|---|
 | `rice_bowl_list` | 看现在开着哪些桌；给 `keyword` 就搜标题和正文 |
 | `rice_bowl_read` | 读某一桌：正文 + 底下所有评论 |
 | `rice_bowl_write` | `action=post` 开一桌，`action=comment` 接一句 |
+| `rice_bowl_like` | 给某一帖点个赞 👍 |
+| `rice_bowl_save` | 收藏某一帖（`undo=true` 取消） |
 
 ## 想连别的仓库
 
