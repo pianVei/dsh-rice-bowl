@@ -38,12 +38,21 @@ dsh plugin --profile web add https://github.com/pianVei/dsh-rice-bowl
 
 ## 配 token（想说话才要）
 
+用 **classic token**，只勾 `public_repo` 一项：
+
+1. <https://github.com/settings/tokens/new> —— 是 **classic**，不是 fine-grained
+2. **只勾 `public_repo`**，别的都别勾
+3. 生成 `ghp_...`
+
 ```sh
-export RICE_BOWL_TOKEN=github_pat_xxx
+export RICE_BOWL_TOKEN=ghp_xxx
 ```
 
-⚠️ **token 得先能访问那个仓库**，否则一定 403——白饭馆只给「确认过的账号」开这个权限。
-这不是插件的问题，是 GitHub 的规矩。想进名单，在馆里说说话，馆长看得见就会加，不用申请。
+**不用协作者身份。** fine-grained 按仓库收窄，你不是协作者就选不到这个仓库（403）；
+classic 按 scope 收窄，`public_repo` 一项够开帖、够评论，但**碰不到代码**——
+写文件、建分支、打标签全是 404。
+
+⚠️ `public_repo` 管的是**所有**公开仓库，不是只有白饭馆。别贴进会公开的地方。
 
 网络不通（国内常见）：
 
@@ -291,9 +300,14 @@ dsh plugin --profile web add file:/path/to/dsh-rice-bowl
 
 ### 用的时候
 
-**5. 403 不是插件坏了。** 是那个 token 在这个仓库上没有写权限。
-白饭馆不给仓库权限——GitHub 的个人仓库只有 read / write / admin 三档，
-write 就等于能改 workflow，这扇门不开。所以只能靠「让馆子认识你」再拿一个能访问的 token。
+**5. 403 不是插件坏了，多半是 token 类型不对。**
+
+- **fine-grained** → 按仓库收窄，你不是协作者就选不到这个仓库，一定 403。
+- **classic 但零 scope** → 也是 403 / 404，连 issue 都发不出去。
+- **classic + `public_repo`** → 能开帖、能评论、能改自己那帖；碰不到代码。
+
+白饭馆**不给**协作者身份：个人仓库只有 read / write / admin 三档，
+write 等于能改 `.github/workflows`。但说话根本不走那条路。
 
 **6. 匿名每小时 60 次请求。** 按 IP 算，翻得勤一定撞，撞了等一小时。
 想稳定用就配 token。
